@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>2016 Popular Dog Breeds in NY</title>
+    <script 
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
+    crossorigin="anonymous"></script>
+    <script 
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+    crossorigin="anonymous"></script>
+
+    <link 
+    rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    crossorigin="anonymous">
+
+    <script 
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
+    crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v5.js"
+    crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.0/d3-tip.js"
+    crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="d3_test/css/style.css">
+    <link rel="stylesheet" href="d3_test/css/d3Style.css">
+</head>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="../index.html">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="index-alli.html">Dog Breed Visualization</a>
+            </li>
+            <li class="nav-item dropdown" id="view-by">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  View
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#licenses" value="view-license">Licenses</a>
+                  <a class="dropdown-item" href="#weight"  value="view-weight">Weight</a>
+                  <a class="dropdown-item" href="#life_exp"  value="view-life-exp">Life Span</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown" id="group_filter">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Filter
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" value="Foundation Stock Service">Foundation Stock Service</a>
+                  <a class="dropdown-item" value="Herding">Herding</a>
+                  <a class="dropdown-item" value="Hound">Hound</a>
+                  <a class="dropdown-item" value="Miscellaneous">Miscellaneous</a>
+                  <a class="dropdown-item" value="Mixed">Mixed</a>
+                  <a class="dropdown-item" value="Non-Sporting">Non-Sporting</a>
+                  <a class="dropdown-item" value="Sporting">Sporting</a>
+                  <a class="dropdown-item" value="Terrier">Terrier</a>
+                  <a class="dropdown-item" value="Toy">Toy</a>
+                  <a class="dropdown-item" value="Unknown">Unknown</a>
+                  <a class="dropdown-item" value="Working">Working</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" value="Show All">Show All</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="viz2.html">Borough Visualization</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="(data_page)bootstrap-table.html">Data</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+  <div class="container">
+    <!--<div class="row">
+      <div class="col-md-12 col-md-12">
+        <h1 class = "header"></h1>
+         D3 2017 Dog Breeds in NY 
+      </div>
+    </div>-->
+    <div class="row">
+      <div class="col-md-12  col-md-9">
+        <div id="circle_chart">
+          <h3></h3>
+          <h4></h4>
+          <!-- We append our chart here. -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12  col-md-9">
+        <div class="article" id="Chart_desc">
+          <h2>New York Dog Breeds and Licenses </h2>
+          <p id="chart_paragraph">&nbsp;&nbsp;&nbsp;&nbsp;Viewing weight as the circle radius shows how most breeds and breed 
+            groups have a similar lifespan.  There is some variability but not as much when compared to license count. 
+            Within each dog breed group there is also a fair amount of variability such as the Working dog group which can weigh 
+            as little as 35 pounds and as much as 175 pounds. This view allows a potential buyer to see the average weight of a 
+            dog breed or dog breed group and make a better decision. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer-->
+  <div id="footer">
+    <p>Made for Data Analytics Boot Camp&copy;2020</p>
+  </div>
+
+  <script type="text/javascript" src="d3_test/js/logic.js"></script>
+
+</body>
+
+</html>
